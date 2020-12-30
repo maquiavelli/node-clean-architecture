@@ -12,6 +12,7 @@
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": ["error"],
-        "consistent-return": ["warn"]
+        "consistent-return": ["warn"],
+        "class-methods-use-this": ["warn"]
     }
 }
