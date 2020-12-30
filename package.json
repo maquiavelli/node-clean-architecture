@@ -1,0 +1,19 @@
+{
+  "name": "node-clean-architecture",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:maquiavelli/node-clean-architecture.git",
+  "author": "Gabriel Maquiavelli <gabrielmaquiavelli@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "global": "^4.4.0"
+  }
+}
