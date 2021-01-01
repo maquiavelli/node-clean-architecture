@@ -20,7 +20,7 @@
     "global": "^4.4.0"
   },
   "scripts": {
-    "test": "jest --watchAll",
-    "test:staged": "jest --passWithNoTests"
+    "test": "jest --watchAll --silent --colors --noStackTrace",
+    "test:staged": "jest --passWithNoTests --findRelatedTests --silent --noStackTrace"
   }
 }
