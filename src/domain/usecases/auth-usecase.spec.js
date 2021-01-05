@@ -88,6 +88,18 @@ const makeTokenGeneratorWithError = () => {
   return new TokenGeneratorSpy();
 };
 
+const makeUpdateAccessTokenRepositoryWithError = () => {
+  class UpdateAccessTokenRepositorySpy {
+    async generate(userId, accessToken) {
+      this.userId = userId;
+      this.accessToken = accessToken;
+      throw new Error();
+    }
+  }
+
+  return new UpdateAccessTokenRepositorySpy();
+};
+
 const makeSut = () => {
   const encrypterSpy = makeEncrypter();
   const loadUserByEmailRepositorySpy = makeLoadUserByEmailRepository();
@@ -239,6 +251,7 @@ describe('Auth UseCase', () => {
   test('Should throw if invalid dependencies throws', async () => {
     const loadUserByEmailRepository = makeLoadUserByEmailRepository();
     const encrypter = makeEncrypter();
+    const tokenGenerator = makeTokenGenerator();
     const suts = [].concat(
       new AuthUseCase({
         loadUserByEmailRepository: makeLoadUserByEmailRepositoryWithError(),
@@ -251,6 +264,12 @@ describe('Auth UseCase', () => {
         loadUserByEmailRepository,
         encrypter,
         tokenGenerator: makeTokenGeneratorWithError(),
+      }),
+      new AuthUseCase({
+        loadUserByEmailRepository,
+        encrypter,
+        tokenGenerator,
+        updateAccessTokenRepository: makeUpdateAccessTokenRepositoryWithError(),
       })
     );
     // eslint-disable-next-line no-restricted-syntax
