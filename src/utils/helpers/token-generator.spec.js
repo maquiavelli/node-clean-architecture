@@ -7,15 +7,17 @@ class TokenGenerator {
   }
 }
 
+const makeSut = () => new TokenGenerator();
+
 describe('Token Generator', () => {
   test('Shoul return null if JWT returns null', async () => {
-    const sut = new TokenGenerator();
+    const sut = makeSut();
     jwt.token = null;
     const token = await sut.generate('any_id');
     expect(token).toBe(null);
   });
   test('Shoul return a token if JWT returns token', async () => {
-    const sut = new TokenGenerator();
+    const sut = makeSut();
     const token = await sut.generate('any_id');
     expect(token).toBe(jwt.token);
   });
