@@ -6,6 +6,7 @@
   "author": "Gabriel Maquiavelli <gabrielmaquiavelli@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
     "eslint": "^7.16.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^7.1.0",
@@ -20,6 +21,7 @@
     "bcrypt": "^5.0.0",
     "global": "^4.4.0",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
     "validator": "^13.5.2"
   },
   "scripts": {
